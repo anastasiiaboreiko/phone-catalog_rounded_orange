@@ -1,0 +1,53 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.button {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 1px solid $icons-color;
+  background-color: $hover-BG-color;
+  outline: none;
+  background: none;
+  cursor: pointer;
+
+  display: flex; // щоб картинка не деформувалась
+  align-items: center;
+  justify-content: center;
+
+  @include hover(transform, scale(1.1));
+
+  &::before {
+    content: 'Back to top';
+    position: static; // щоб текст був просто біля кнопки 
+    margin-right: 16px; // відстань між текстом і кнопкою
+    white-space: nowrap; // щоб текст не переносився
+    color: $secondary-text-color;
+  }
+
+  &:hover {
+    border-color: $primary-text-color;
+  }
+
+  @include on-tablet {
+    &::before {
+      position: absolute;
+      right: 100%; // текст “завжди” ставиться ліворуч від кнопки
+      top: 50%; 
+      transform: translateY(-50%); 
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+
+  mask-image: url('/img/icons/arrowUp.svg');
+  mask-size: cover;
+
+  background-color: $primary-text-color;
+}

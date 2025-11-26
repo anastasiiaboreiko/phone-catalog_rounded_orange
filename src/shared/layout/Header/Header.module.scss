@@ -1,0 +1,164 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.header {
+  height: 48px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  @include on-desktop {
+    height: 64px;
+  }
+
+  background-color: $white-color;
+}
+
+.headerContent {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 1px 0px 0px $elements-color;
+
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+}
+
+.navLogo {
+  margin: 0;
+  padding: 0 16px;
+  height: 22px;
+  width: 64px;
+  
+
+  @include on-desktop {
+    padding: 0 24px;
+    height: 28px;
+    width: 80px;
+  }
+}
+
+.navLinks {
+  display: none;
+
+  @include on-tablet {
+    display: flex; 
+    gap: 32px;
+    padding: 0 16px;
+  }
+
+  @include on-desktop {
+    padding: 0 24px;
+    gap: 64px;
+  }
+}
+
+.navLink {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: $secondary-text-color;
+  cursor: pointer; 
+
+  @include on-desktop {
+    line-height: 64px;
+  }
+
+  @include hover(transform, scale(1.1));
+}
+
+.active {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: $primary-text-color;
+
+  @include on-desktop {
+    line-height: 64px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: $primary-text-color;
+  }
+}
+
+.buttonBar {
+  display: flex; 
+  height: 100%; // кнопки успадкують всю висоту хедера
+}
+
+.button { 
+  display: none;
+
+  @include on-tablet {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    cursor: pointer;
+    box-shadow: -1px 0px 0px 0px $elements-color;
+  }
+
+  @include on-desktop {
+    padding: 0 24px;
+  }
+
+  @include hover(transform, scale(1.1));
+}
+
+.buttonMobile {
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+  cursor: pointer;
+  box-shadow: -1px 0px 0px 0px $elements-color;
+
+  @include on-tablet {
+    display: none;
+  }
+
+  @include hover(transform, scale(1.1));
+}
+
+.activeButton {
+  display: flex;
+  position: relative;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+  cursor: pointer;
+  box-shadow: -1px 0px 0px 0px $elements-color;
+
+  @include on-desktop {
+    padding: 0 24px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: $primary-text-color;
+  }
+}
+
+.img {
+  display: block;  
+}
+

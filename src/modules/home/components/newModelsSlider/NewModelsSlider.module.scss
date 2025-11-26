@@ -1,0 +1,41 @@
+@import '../../../../shared/styles/mixins.scss';
+@import '../../../../shared/styles/variables.scss';
+
+.wrapper {
+  padding-block: 56px;
+
+  @include on-tablet {
+    padding-block: 64px;
+  }
+  @include on-desktop {
+    padding-block: 80px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding-right: 24px;
+
+  @include on-tablet {
+    max-width: 592px;
+  }
+
+  @include on-desktop {
+    max-width: 1136px;
+  }
+}
+
+.sliderButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.products {
+  display: flex;
+  gap: 16px;
+}
+
