@@ -1,0 +1,83 @@
+@import '../../../../shared/styles/mixins.scss';
+@import '../../../../shared/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 16px;
+  }
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  text-decoration: none;
+}
+
+.categoryImg {
+  margin: 0;
+  height: 288px;
+  width: 288px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+
+  @include on-tablet {
+    margin: 0;
+    height: 187px;
+    width: 187px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden; 
+  }
+
+  @include on-desktop {
+    margin: 0;
+    height: 368px;
+    width: 368px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden; 
+  }
+}
+
+.img {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 110%;
+  height: auto;
+  object-fit: contain; 
+}
+
+.categoryInfo {
+  margin: 0;
+  padding-top: 24px;
+}
+
+.title {
+  margin: 0;
+  padding-bottom: 4px;
+  // text-decoration: none;
+  // cursor: pointer; 
+  color: $primary-text-color;
+}
+
+.info {
+  color: $secondary-text-color;
+  margin: 0;
+  // text-decoration: none;
+  // cursor: pointer; 
+}

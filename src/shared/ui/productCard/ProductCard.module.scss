@@ -1,0 +1,124 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.productCard {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding-inline: 32px;
+  padding-block: 32px;
+  border: 1px solid $elements-color;
+  background-color: $white-color;
+  width: 272px;
+  height: 506px;
+  border-radius: 8px;
+}
+
+.topBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* висота блоку з картинкою + назвою */
+  height: 262px; // підлаштуй цифру під макет (≈ 196 img + відступи + 2 рядки тексту)
+}
+
+.img {
+  margin: 0;
+  width: 208px;
+  flex: 1 1 auto;
+  max-height: 196px;
+  padding-bottom: 8px;
+  object-fit: contain; 
+}
+
+.productName {
+  margin: 0;
+  padding-top: 16px;
+  // height: 42px;
+}
+
+.priceBlock {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.price {
+  margin: 0;
+  padding-block: 8px;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 208px;
+    height: 1px;
+    background-color: $elements-color;
+    bottom: 0;
+  }
+}
+
+.fullPrice {
+  display: flex;
+  align-self: center;
+  position: relative;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: $secondary-text-color;
+
+}
+
+.fullPriceWrapper {
+  position: relative;
+  display: inline-block;
+
+  &:hover .strike {
+    background: $white-color;
+  }
+}
+
+.strike {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: $secondary-text-color;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: background 0.3s;
+}
+
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  padding-block: 8px; 
+  margin-block: 8px;
+
+  gap: 8px;
+}
+
+.infoText {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  color: $secondary-text-color;
+}
+
+.specs {
+  margin: 0;
+}
+
+.buttonBlock {
+  display: flex;
+  justify-content: space-between;
+}
