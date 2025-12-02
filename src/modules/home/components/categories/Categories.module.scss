@@ -7,9 +7,16 @@
   align-items: flex-start;
 }
 
+.categoryTitle {
+  margin: 0;
+  padding-bottom: 24px;
+}
+
 .categories {
   display: flex;
   flex-direction: column;
+  align-self: self-start;
+  gap: 32px;
 
   @include on-tablet {
     display: flex;
@@ -67,7 +74,7 @@
   padding-top: 24px;
 }
 
-.title {
+.sectionTitle {
   margin: 0;
   padding-bottom: 4px;
   // text-decoration: none;

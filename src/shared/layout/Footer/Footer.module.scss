@@ -25,6 +25,7 @@
 
   @include on-desktop {
     grid-column: span 8;
+    grid-row: 1;
   }
 }
 
@@ -39,14 +40,15 @@
   @include on-tablet {
     flex-direction: row; 
     align-items: center;
-    gap: 13.5px;
+    justify-content: space-between;
     grid-column: span 4;
     padding-block: 0; 
   }
   
   @include on-desktop {
-    gap: 106.83px;
     grid-column: span 8;
+    grid-row: 1;
+    padding-block: 0; 
   }
 }
 
@@ -61,14 +63,15 @@
 
 .footerButton {
   grid-column: 1 / -1;
+  justify-self: center;
 
   @include on-tablet {
     grid-column: span 4;
-    justify-self: end; 
+    justify-self: end;
   }
 
   @include on-desktop {
     grid-column: span 8;
-    justify-self: end;
+    grid-row: 1;
   }
 }

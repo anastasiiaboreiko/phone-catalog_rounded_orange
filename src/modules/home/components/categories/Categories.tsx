@@ -49,7 +49,7 @@ export const Categories: React.FC<Props> = ({ products }) => {
 
   return (
     <div className={styles.wrapper}>
-      <h2>Shop by category</h2>
+      <h2 className={styles.categoryTitle}>Shop by category</h2>
       <div className={styles.categories}>
         {categories.map(category => (
           <Link
@@ -72,7 +72,7 @@ export const Categories: React.FC<Props> = ({ products }) => {
               />
             </div>
             <div className={styles.categoryInfo}>
-              <h4 className={styles.title}>{category.name}</h4>
+              <h4 className={styles.sectionTitle}>{category.name}</h4>
               <p className={`body-text ${styles.info}`}>
                 {category.quantity} models
               </p>

@@ -1,14 +1,15 @@
 import styles from './BackToTopButton.module.scss';
-// import sliderButton from './slider_button.svg';
 
 export const BackToTopButton = ({ className = '' }) => {
   return (
-    <button
-      className={`${styles.button} ${className}`}
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-    >
-      {/* <img src={sliderButton} alt="Back to top" /> */}
-      <span className={styles.icon} aria-hidden="true" />
-    </button>
+    <div className={`${styles.buttonBlock} ${className}`}>
+      <p className={`small-text ${styles.buttonText}`}>Back to top</p>
+      <button
+        className={styles.button}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <span className={styles.icon} aria-hidden="true" />
+      </button>
+    </div>
   );
 };
