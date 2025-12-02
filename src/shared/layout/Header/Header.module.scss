@@ -64,6 +64,10 @@
   color: $secondary-text-color;
   cursor: pointer; 
 
+  @include on-tablet {
+    line-height: 48px;
+  }
+
   @include on-desktop {
     line-height: 64px;
   }
@@ -76,6 +80,10 @@
   position: relative;
   text-decoration: none;
   color: $primary-text-color;
+
+  @include on-tablet {
+    line-height: 48px;
+  }
 
   @include on-desktop {
     line-height: 64px;
