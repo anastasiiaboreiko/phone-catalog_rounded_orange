@@ -2,7 +2,7 @@
 @import '../../../../shared/styles/variables.scss';
 
 .wrapper {
-  padding-block: 56px;
+  padding-block: 56px 64px;
 
   @include on-tablet {
     padding-block: 64px;
@@ -14,11 +14,15 @@
   }
 }
 
+.categoryTitle {
+  margin: 0;
+}
+
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding-right: 24px;
+  padding-bottom: 24px;
 
   @include on-tablet {
     max-width: 592px;
