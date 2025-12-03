@@ -1,0 +1,76 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.buttonBar {
+  display: flex; 
+  height: 100%; // кнопки успадкують всю висоту хедера
+}
+
+.button { 
+  display: none;
+
+  @include on-tablet {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    cursor: pointer;
+    box-shadow: -1px 0px 0px 0px $elements-color;
+  }
+
+  @include on-desktop {
+    padding: 0 24px;
+  }
+
+  @include hover(transform, scale(1.1));
+}
+
+.buttonMobile {
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
+  cursor: pointer;
+  box-shadow: -1px 0px 0px 0px $elements-color;
+
+  @include on-tablet {
+    display: none;
+  }
+
+  @include hover(transform, scale(1.1));
+}
+
+.activeButton {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    cursor: pointer;
+    box-shadow: -1px 0px 0px 0px $elements-color;
+    padding: 0 16px;
+  }
+
+  @include on-desktop {
+    padding: 0 24px;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: $primary-text-color;
+  }
+}
+
+.img {
+  display: block;  
+}

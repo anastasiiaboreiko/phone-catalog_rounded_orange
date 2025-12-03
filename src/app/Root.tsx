@@ -12,10 +12,12 @@ import { TabletsPage } from '../modules/catalog/TabletsPage/TabletsPage';
 import { AccessoriesPage } from '../modules/catalog/AccessoriesPage/AccessoriesPage';
 import { FavoritesPage } from '../modules/favorites/FavoritesPage';
 import { CartPage } from '../modules/cart/CartPage';
-import { BurgerMenuPage } from '../modules/navigation/BurgerMenuPage';
+// eslint-disable-next-line max-len
+import { BurgerMenuPage } from '../modules/navigation/components/burgerMenu/BurgerMenuPage';
 import { NotFoundPage } from '../modules/system/NotFoundPage';
 import { ContactsPage } from '../modules/contacts/ContactsPage';
 import { RightsPage } from '../modules/rights/RightsPage';
+import { ProductDetailsPage } from '../modules/product';
 
 export const Root = () => (
   <Router>
@@ -26,17 +28,17 @@ export const Root = () => (
 
         <Route path="phones">
           <Route index element={<PhonesPage />} />
-          <Route path=":productId" element={<PhonesPage />} />
+          <Route path=":productId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path="tablets">
           <Route index element={<TabletsPage />} />
-          <Route path=":productId" element={<TabletsPage />} />
+          <Route path=":productId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path="accessories">
           <Route index element={<AccessoriesPage />} />
-          <Route path=":productId" element={<AccessoriesPage />} />
+          <Route path=":productId" element={<ProductDetailsPage />} />
         </Route>
 
         <Route path="favorites" element={<FavoritesPage />} />
