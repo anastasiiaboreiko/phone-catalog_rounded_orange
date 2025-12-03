@@ -3,7 +3,7 @@
 
 .wrapper {
   padding-block: 56px;
-  overflow: visible;
+  // overflow: hidden;
 
   @include on-tablet {
     padding-block: 64px;
@@ -17,7 +17,6 @@
 
 .categoryTitle {
   margin: 0;
-
 }
 
 .mobileText {
@@ -39,12 +38,9 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 24px;
-  // padding-right: 24px;
 
   @include on-tablet {
     max-width: 592px;
-    // padding-bottom: 24px;
-
   }
 
   @include on-desktop {
@@ -60,14 +56,18 @@
 .products {
   display: flex;
   gap: 16px;
+  // padding-right: 16px;
+  overflow: visible;
   margin-right: -16px;
+  // margin-right: -16px;
 
   @include on-tablet {
     margin-right: -24px;
+    // padding-right: 24px;
   }
 
   @include on-desktop {
     margin-right: 0;
+    // padding-right: 0;
   }
 }
-
