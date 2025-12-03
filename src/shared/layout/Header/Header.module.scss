@@ -56,116 +56,73 @@
   }
 }
 
-.navLink {
-  display: block;
-  position: relative;
-  text-decoration: none;
-  color: $secondary-text-color;
-  cursor: pointer; 
+// .buttonBar {
+//   display: flex; 
+//   height: 100%; // кнопки успадкують всю висоту хедера
+// }
 
-  @include on-tablet {
-    line-height: 48px;
-  }
+// .button { 
+//   display: none;
 
-  @include on-desktop {
-    line-height: 64px;
-  }
+//   @include on-tablet {
+//     padding: 0 16px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     height: 100%; 
+//     cursor: pointer;
+//     box-shadow: -1px 0px 0px 0px $elements-color;
+//   }
 
-  @include hover(transform, scale(1.1));
-}
+//   @include on-desktop {
+//     padding: 0 24px;
+//   }
 
-.active {
-  display: block;
-  position: relative;
-  text-decoration: none;
-  color: $primary-text-color;
+//   @include hover(transform, scale(1.1));
+// }
 
-  @include on-tablet {
-    line-height: 48px;
-  }
+// .buttonMobile {
+//   padding: 0 16px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100%; 
+//   cursor: pointer;
+//   box-shadow: -1px 0px 0px 0px $elements-color;
 
-  @include on-desktop {
-    line-height: 64px;
-  }
+//   @include on-tablet {
+//     display: none;
+//   }
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
-    background-color: $primary-text-color;
-  }
-}
+//   @include hover(transform, scale(1.1));
+// }
 
-.buttonBar {
-  display: flex; 
-  height: 100%; // кнопки успадкують всю висоту хедера
-}
+// .activeButton {
+//   display: flex;
+//   position: relative;
+//   padding: 0 16px;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100%; 
+//   cursor: pointer;
+//   box-shadow: -1px 0px 0px 0px $elements-color;
 
-.button { 
-  display: none;
+//   @include on-desktop {
+//     padding: 0 24px;
+//   }
 
-  @include on-tablet {
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%; 
-    cursor: pointer;
-    box-shadow: -1px 0px 0px 0px $elements-color;
-  }
+//   &::after {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     bottom: 0;
+//     height: 3px;
+//     width: 100%;
+//     background-color: $primary-text-color;
+//   }
+// }
 
-  @include on-desktop {
-    padding: 0 24px;
-  }
-
-  @include hover(transform, scale(1.1));
-}
-
-.buttonMobile {
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%; 
-  cursor: pointer;
-  box-shadow: -1px 0px 0px 0px $elements-color;
-
-  @include on-tablet {
-    display: none;
-  }
-
-  @include hover(transform, scale(1.1));
-}
-
-.activeButton {
-  display: flex;
-  position: relative;
-  padding: 0 16px;
-  align-items: center;
-  justify-content: center;
-  height: 100%; 
-  cursor: pointer;
-  box-shadow: -1px 0px 0px 0px $elements-color;
-
-  @include on-desktop {
-    padding: 0 24px;
-  }
-
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
-    background-color: $primary-text-color;
-  }
-}
-
-.img {
-  display: block;  
-}
+// .img {
+//   display: block;  
+// }
 

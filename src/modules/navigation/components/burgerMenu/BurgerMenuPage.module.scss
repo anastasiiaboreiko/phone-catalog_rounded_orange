@@ -1,0 +1,58 @@
+@import '../../../../shared/styles/variables.scss';
+@import '../../../../shared/styles/mixins.scss';
+
+.menuContent {
+  min-height: calc(100vh - 48px); 
+  display: flex;
+  flex-direction: column;
+  @include content-padding-inline();
+}
+
+.menuMain {
+  flex: 1;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+  gap: 16px;
+}
+
+.menuFooter {
+  display: flex;
+  height: 64px;
+  border-top: 1px solid $elements-color;
+}
+
+.footerButton {
+  flex: 1; // займає половину ширини
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  // @include hover(transform, scale(1.1));
+
+  &:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: $primary-text-color;
+  }
+}
+
+
+.footerButton:first-child {
+  border-right: 1px solid $elements-color;
+}
+
+.img {
+  width: 16px;
+  height: 16px;
+}
