@@ -77,10 +77,12 @@ export const NewModelsSlider: React.FC<Props> = ({ products }) => {
           />
         </div>
       </div>
-      <div className={styles.products}>
-        {currentProducts.map(product => (
-          <ProductCard product={product} key={product.id} />
-        ))}
+      <div className={styles.productsOuter}>
+        <div className={styles.products}>
+          {currentProducts.map(product => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

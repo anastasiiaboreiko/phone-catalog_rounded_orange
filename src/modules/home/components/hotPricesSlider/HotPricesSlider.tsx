@@ -62,10 +62,12 @@ export const HotPricesSlider: React.FC<Props> = ({ products }) => {
           />
         </div>
       </div>
-      <div className={styles.products}>
-        {currentProducts.map(product => (
-          <ProductCard product={product} showFullPrice key={product.id} />
-        ))}
+      <div className={styles.productsOuter}>
+        <div className={styles.products}>
+          {currentProducts.map(product => (
+            <ProductCard product={product} showFullPrice key={product.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

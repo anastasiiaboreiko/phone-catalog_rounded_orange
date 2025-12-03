@@ -3,6 +3,7 @@
 
 .productCard {
   display: flex;
+  // flex: 0 0 calc(100% / 1.5);
   box-sizing: border-box;
   flex-direction: column;
   padding-inline: 32px;
@@ -16,11 +17,13 @@
   @include on-tablet {
     width: 237px;
     height: 512px;
+    // flex: 0 0 calc(100% / 2.5); 
   }
 
   @include on-desktop {
     width: 272px;
     height: 506px;
+    // flex: 0 0 calc(100% / 4);
   }
 }
 
