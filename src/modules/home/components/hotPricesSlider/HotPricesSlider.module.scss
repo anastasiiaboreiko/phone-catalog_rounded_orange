@@ -3,6 +3,7 @@
 
 .wrapper {
   padding-block: 56px 64px;
+  // overflow: hidden;
 
   @include on-tablet {
     padding-block: 64px;
@@ -41,4 +42,16 @@
 .products {
   display: flex;
   gap: 16px;
+  overflow: visible;
+  margin-right: -16px;
+
+  @include on-tablet {
+    margin-right: -24px;
+    // padding-right: 24px;
+  }
+
+  @include on-desktop {
+    margin-right: 0;
+    // padding-right: 0;
+  }
 }
