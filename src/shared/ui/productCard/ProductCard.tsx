@@ -3,6 +3,7 @@ import { Product } from '../../types/Product';
 import { AddToCart } from '../buttons/addToCart';
 import { AddToFavoriteButton } from '../buttons/addToFavorite';
 import styles from './ProductCard.module.scss';
+import { NavLink } from 'react-router-dom';
 
 type Props = {
   product: Product;
@@ -15,14 +16,17 @@ export const ProductCard: React.FC<Props> = ({
 }) => {
   return (
     <div className={styles.productCard}>
-      <div className={styles.topBlock}>
+      <NavLink
+        to={`/${product.category}/${product.id}`}
+        className={styles.topBlock}
+      >
         <img
           className={styles.img}
           src={process.env.PUBLIC_URL + '/' + product.image}
           alt={product.name}
         ></img>
         <p className={`body-text ${styles.productName}`}>{product.name}</p>
-      </div>
+      </NavLink>
       <div className={styles.priceBlock}>
         <h3 className={styles.price}>{`$${product.price}`}</h3>
         {showFullPrice && (
