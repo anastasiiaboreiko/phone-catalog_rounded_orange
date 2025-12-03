@@ -3,7 +3,6 @@
 
 .wrapper {
   padding-block: 56px;
-  // overflow: hidden;
 
   @include on-tablet {
     padding-block: 64px;
@@ -53,21 +52,35 @@
   gap: 16px;
 }
 
-.products {
-  display: flex;
-  gap: 16px;
-  // padding-right: 16px;
-  overflow: visible;
-  margin-right: -16px;
-  // margin-right: -16px;
+.productsOuter {
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
 
   @include on-tablet {
-    margin-right: -24px;
-    // padding-right: 24px;
+    left: 0;
+    margin-left: 0;
   }
 
   @include on-desktop {
-    margin-right: 0;
-    // padding-right: 0;
+    position: static;
+    margin: 0;
+    width: auto;
+    overflow: visible;
+  }
+}
+
+.products {
+  display: flex;
+  gap: 16px;
+  padding-left: 16px;
+
+  @include on-tablet {
+    overflow: hidden;
+    padding-left: 0;
   }
 }
