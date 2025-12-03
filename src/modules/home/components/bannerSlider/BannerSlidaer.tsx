@@ -9,7 +9,7 @@ import banner3_m from '../../../../img/banner-accessories_mob.jpeg';
 import { SliderLeftBigButton } from '../../../../shared/ui/buttons/sliderLeftBIg';
 // eslint-disable-next-line max-len
 import { SliderRightBigButton } from '../../../../shared/ui/buttons/sliderRigthBig';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const bannersArrow = [
   {
@@ -35,6 +35,9 @@ const bannersArrow = [
 export const BannerSlider = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const total = bannersArrow.length;
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const MIN_SWIPE_DISTANCE = 50;
 
   const handleNext = () => {
     setCurrentIndex((prev: number) => (prev + 1) % total);
@@ -48,6 +51,26 @@ export const BannerSlider = () => {
     setCurrentIndex(index);
   };
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(distance) > MIN_SWIPE_DISTANCE) {
+      if (distance > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+  };
+
   const currentBanner = bannersArrow[currentIndex];
 
   return (
@@ -55,7 +78,12 @@ export const BannerSlider = () => {
       <div className={styles.innerContent}>
         <div className={styles.slider}>
           <SliderLeftBigButton onLeftButton={handlePrev} />
-          <div className={styles.banner}>
+          <div
+            className={styles.banner}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <picture>
               <source
                 media="(max-width: 639px)" // до планшета

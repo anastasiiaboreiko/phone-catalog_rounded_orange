@@ -26,6 +26,8 @@
 
 .topBlock {
   display: flex;
+  text-decoration: none;
+  color: $primary-text-color;
   flex-direction: column;
   align-items: center;
   height: 196px;/* висота блоку з картинкою + назвою */
@@ -60,7 +62,10 @@
 
 .productName {
   margin: 0;
+  display: block;
   padding-top: 16px;
+  // text-decoration: none;
+  cursor: pointer; 
   // height: 42px;
 }
 
