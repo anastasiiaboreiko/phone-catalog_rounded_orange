@@ -1,29 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { BannerSlider } from './components/bannerSlider/BannerSlidaer';
 import { Categories } from './components/categories/Categories';
 import { HotPricesSlider } from './components/hotPricesSlider/HotPricesSlider';
 import { NewModelsSlider } from './components/newModelsSlider/NewModelsSlider';
 import styles from './HomePage.module.scss';
-import { Product } from '../../shared/types/Product';
-import { getProducts } from '../../shared/api/api';
+// import { Product } from '../../shared/types/Product';
+// import { getProducts } from '../../shared/api/api';
+import { ProductsContext } from '../../shared/context/ProductsContext';
 
 export const HomePage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<boolean>(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setErrorMessage(false);
-
-    getProducts()
-      .then(setProducts)
-      .catch(() => setErrorMessage(true))
-      .finally(() => setLoading(false));
-  }, []);
-
-  // eslint-disable-next-line no-console, no-console
-  // console.log('newPositions: ', newPositions);
+  const { loading, errorMessage } = useContext(ProductsContext);
 
   return (
     <div className={styles.wrapper}>
@@ -38,12 +24,13 @@ export const HomePage = () => {
           Gadgets store!
         </span>
       </h1>
+
       {!loading && !errorMessage && (
         <>
           <BannerSlider />
-          <NewModelsSlider products={products} />
-          <Categories products={products} />
-          <HotPricesSlider products={products} />
+          <NewModelsSlider />
+          <Categories />
+          <HotPricesSlider />
         </>
       )}
     </div>

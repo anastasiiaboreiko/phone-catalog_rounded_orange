@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Product } from '../../../../shared/types/Product';
+import React, { useContext, useState } from 'react';
 import './HotPricesSlider.module.scss';
 // eslint-disable-next-line max-len
 import { SliderLeftRoundButton } from '../../../../shared/ui/buttons/sliderLerfRound';
@@ -9,12 +8,10 @@ import { ProductCard } from '../../../../shared/ui/productCard';
 import styles from './HotPricesSlider.module.scss';
 import { useSliderPerPage } from '../../../../shared/hooks/useSliderPerPage';
 import { getIndexes } from '../../../../shared/utils/getIndexes';
+import { ProductsContext } from '../../../../shared/context/ProductsContext';
 
-type Props = {
-  products: Product[];
-};
-
-export const HotPricesSlider: React.FC<Props> = ({ products }) => {
+export const HotPricesSlider = () => {
+  const { products } = useContext(ProductsContext);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const perPage = useSliderPerPage();
 
