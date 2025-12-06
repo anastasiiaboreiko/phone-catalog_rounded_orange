@@ -40,34 +40,60 @@
 }
 
 .productsOuter {
-  overflow: hidden;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  width: 100vw;
+  overflow: hidden; // усе, що не влазить по ширині, не видно
+  margin-right: -16px;
 
   @include on-tablet {
-    left: 0;
-    margin-left: 0;
+    margin-right: -24px;
   }
 
-  @include on-desktop {
-    position: static;
-    margin: 0;
-    width: auto;
+  @include on-desktop{
     overflow: visible;
+    margin-right: 0;
   }
 }
 
 .products {
   display: flex;
   gap: 16px;
-  padding-left: 16px;
+  flex-wrap: nowrap; // не переносити на новий ряд
 
-  @include on-tablet {
-    padding-left: 0;
-    overflow: hidden;
+  @include on-desktop {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
+
+// .productsOuter {
+//   overflow: hidden;
+//   position: relative;
+//   left: 50%;
+//   right: 50%;
+//   margin-left: -50vw;
+//   margin-right: -50vw;
+//   width: 100vw;
+
+//   @include on-tablet {
+//     left: 0;
+//     margin-left: 0;
+//   }
+
+//   @include on-desktop {
+//     position: static;
+//     margin: 0;
+//     width: auto;
+//     overflow: visible;
+//   }
+// }
+
+// .products {
+//   display: flex;
+//   gap: 16px;
+//   padding-left: 16px;
+
+//   @include on-tablet {
+//     padding-left: 0;
+//     overflow: hidden;
+//   }
+// }

@@ -1,6 +1,5 @@
 // eslint-disable-next-line max-len
-import React, { useState } from 'react';
-import { Product } from '../../../../shared/types/Product';
+import React, { useContext, useState } from 'react';
 // eslint-disable-next-line max-len
 import { SliderLeftRoundButton } from '../../../../shared/ui/buttons/sliderLerfRound';
 // eslint-disable-next-line max-len
@@ -10,16 +9,17 @@ import styles from './NewModelsSlider.module.scss';
 import { ProductCard } from '../../../../shared/ui/productCard/ProductCard';
 import { useSliderPerPage } from '../../../../shared/hooks/useSliderPerPage';
 import { getIndexes } from '../../../../shared/utils/getIndexes';
+import { ProductsContext } from '../../../../shared/context/ProductsContext';
 
-type Props = {
-  products: Product[];
-};
-
-export const NewModelsSlider: React.FC<Props> = ({ products }) => {
+export const NewModelsSlider = () => {
+  const { products } = useContext(ProductsContext);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const perPage = useSliderPerPage();
 
-  const newPositions = [...products].filter(product => product.year === 2022);
+  // eslint-disable-next-line no-console
+  console.log('products: ', products);
+
+  const newPositions = products.filter(product => product.year === 2022);
 
   const totalProducts = newPositions.length;
   const { firstIndex, lastIndex } = getIndexes(perPage, currentPage);
@@ -42,18 +42,18 @@ export const NewModelsSlider: React.FC<Props> = ({ products }) => {
   };
 
   // eslint-disable-next-line no-console
-  console.log(
-    'currentPage',
-    currentPage,
-    'totalProducts:',
-    totalProducts,
-    'lastIndex:',
-    lastIndex,
-    'firstIndex:',
-    firstIndex,
-    'currentProducts:',
-    currentProducts,
-  );
+  // console.log(
+  //   'currentPage',
+  //   currentPage,
+  //   'totalProducts:',
+  //   totalProducts,
+  //   'lastIndex:',
+  //   lastIndex,
+  //   'firstIndex:',
+  //   firstIndex,
+  //   'currentProducts:',
+  //   currentProducts,
+  // );
 
   return (
     <div className={styles.wrapper}>

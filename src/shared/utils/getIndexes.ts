@@ -1,4 +1,17 @@
-export const getIndexes = (perPage: number, currentPage: number) => {
+type PerPage = number | 'all';
+
+export const getIndexes = (
+  perPage: PerPage,
+  currentPage: number,
+  totalProducts?: number,
+) => {
+  if (perPage === 'all') {
+    return {
+      firstIndex: 0,
+      lastIndex: totalProducts,
+    };
+  }
+
   let lastIndex = 0;
   let firstIndex = 0;
 

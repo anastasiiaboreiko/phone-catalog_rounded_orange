@@ -1,17 +1,14 @@
-import React from 'react';
-import { Product } from '../../../../shared/types/Product';
+import React, { useContext } from 'react';
 import styles from './Categories.module.scss';
 import phoneImg from '../../../../img/category-phones1 copy.png';
 import tabletImg from '../../../../img/category-tablets copy.png';
 import accessoryImg from '../../../../img/category-assessories1.png';
 import { Link, useSearchParams } from 'react-router-dom';
+import { ProductsContext } from '../../../../shared/context/ProductsContext';
 
-type Props = {
-  products: Product[];
-};
-
-export const Categories: React.FC<Props> = ({ products }) => {
+export const Categories = () => {
   const [searchParams] = useSearchParams();
+  const { products } = useContext(ProductsContext);
 
   const phones = products.filter(
     product => product.category === 'phones',

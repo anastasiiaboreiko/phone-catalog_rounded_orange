@@ -14,16 +14,17 @@
 
 @mixin content-padding-inline() {
   padding-inline: 16px;
+  margin-inline: auto;
+  box-sizing: border-box;
 
   @include on-tablet {
     margin-inline: auto;
-    max-width: 640px;
     padding-inline: 24px;
   }
 
   @include on-desktop {
     margin-inline: auto;
-    max-width: 1200px;
+    max-width: $content-max-width;
     padding-inline: 32px;
   }
 }
