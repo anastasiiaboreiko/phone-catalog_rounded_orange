@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './HotPricesSlider.module.scss';
+import { useSwipeable } from 'react-swipeable';
 // eslint-disable-next-line max-len
 import { SliderLeftRoundButton } from '../../../../shared/ui/buttons/sliderLerfRound';
 // eslint-disable-next-line max-len
@@ -32,6 +33,8 @@ export const HotPricesSlider = () => {
   const prevDisabled = currentPage <= 1;
   const nextDisabled = currentPage >= totalPages;
 
+  const isMobileOrTablet = perPage < 4;
+
   const handleLeftButtonClick = () => {
     if (!prevDisabled) {
       setCurrentPage(currentPage - 1);
@@ -43,6 +46,24 @@ export const HotPricesSlider = () => {
       setCurrentPage(currentPage + 1);
     }
   };
+
+  //#region Swipe
+  const swipers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isMobileOrTablet && !nextDisabled) {
+        handleRightButtonClick();
+      }
+    },
+    onSwipedRight: () => {
+      if (isMobileOrTablet && !prevDisabled) {
+        handleLeftButtonClick();
+      }
+    },
+
+    // trackMouse: true,
+    preventScrollOnSwipe: true,
+  });
+  //#endregion
 
   return (
     <div className={styles.wrapper}>
@@ -59,7 +80,7 @@ export const HotPricesSlider = () => {
           />
         </div>
       </div>
-      <div className={styles.productsOuter}>
+      <div className={styles.productsOuter} {...swipers}>
         <div className={styles.products}>
           {currentProducts.map(product => (
             <ProductCard product={product} showFullPrice key={product.id} />

@@ -62,6 +62,7 @@ export const NewModelsSlider = () => {
     // trackMouse: true,
     preventScrollOnSwipe: true,
   });
+  //#endregion
 
   return (
     <div className={styles.wrapper}>
