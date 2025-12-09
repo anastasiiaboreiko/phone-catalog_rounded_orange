@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ItemsOnPageSelect.module.scss';
-
-type PerPage = number | 'all';
+import { PerPage } from '../../types/PerPage';
 
 type Props = {
   value: PerPage;
@@ -17,11 +16,6 @@ const options: { value: PerPage; label: string }[] = [
 
 export const ItemsOnPageSelect: React.FC<Props> = ({ value, onChange }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  // // eslint-disable-next-line no-console
-  // console.log('value:', value);
-  // // eslint-disable-next-line no-console
-  // console.log('option:', options);
 
   return (
     <div className={styles.sortByBlock}>
