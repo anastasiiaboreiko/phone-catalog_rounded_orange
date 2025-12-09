@@ -1,5 +1,6 @@
 // eslint-disable-next-line max-len
 import React, { useContext, useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 // eslint-disable-next-line max-len
 import { SliderLeftRoundButton } from '../../../../shared/ui/buttons/sliderLerfRound';
 // eslint-disable-next-line max-len
@@ -27,6 +28,8 @@ export const NewModelsSlider = () => {
 
   const prevDisabled = currentPage <= 1;
   const nextDisabled = currentPage >= totalPages;
+
+  const isMobileOrTablet = perPage < 4;
   //#endregion
 
   //#region Handlers
@@ -42,6 +45,23 @@ export const NewModelsSlider = () => {
     }
   };
   //#endregion
+
+  //#region Swipe
+  const swipers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isMobileOrTablet && !nextDisabled) {
+        handleRightButtonClick();
+      }
+    },
+    onSwipedRight: () => {
+      if (isMobileOrTablet && !prevDisabled) {
+        handleLeftButtonClick();
+      }
+    },
+
+    // trackMouse: true,
+    preventScrollOnSwipe: true,
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -65,7 +85,7 @@ export const NewModelsSlider = () => {
           />
         </div>
       </div>
-      <div className={styles.productsOuter}>
+      <div className={styles.productsOuter} {...swipers}>
         <div className={styles.products}>
           {currentProducts.map(product => (
             <ProductCard product={product} key={product.id} />
