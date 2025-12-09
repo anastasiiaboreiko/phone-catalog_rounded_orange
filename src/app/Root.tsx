@@ -19,9 +19,11 @@ import { ContactsPage } from '../modules/contacts/ContactsPage';
 import { RightsPage } from '../modules/rights/RightsPage';
 import { ProductDetailsPage } from '../modules/product';
 import { ProductsProvider } from '../shared/context/ProductsContext';
+import { ScrollToTop } from '../shared/ui/scrollToTop/ScrollToTop';
 
 export const Root = () => (
   <Router>
+    <ScrollToTop />
     <ProductsProvider>
       <Routes>
         <Route path="/" element={<App />}>
