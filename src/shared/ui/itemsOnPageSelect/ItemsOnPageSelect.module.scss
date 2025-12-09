@@ -5,9 +5,6 @@
   width: 136px;
   height: 59px;
 
-  @include on-tablet {
-    width: 136px;
-  }
   @include on-desktop {
     width: 128px;
   }
@@ -23,9 +20,6 @@
   position: relative;
   width: 136px;
 
-  @include on-tablet {
-    width: 136px;
-  }
   @include on-desktop {
     width: 128px;
   }
@@ -74,6 +68,8 @@
 }
 
 .dropdown {
+  position: absolute;
+  width: 136px;
   background-color: $white-color;
   border: 1px solid $elements-color;
   border-radius: 8px;
@@ -81,9 +77,14 @@
   padding-left: 0;
   padding-block: 8px;
   margin: 0;
+
+  @include on-desktop {
+    width: 128px;
+  }
 }
 
 .listItem {
+
   color: $secondary-text-color;
   font-weight: 500;
   font-size: 14px;

@@ -8,18 +8,13 @@ type Props = {
 };
 
 const options: { value: SortOption; label: string }[] = [
-  { value: 'newest', label: 'Newest' },
-  { value: 'alphabetically', label: 'Alphabetically' },
-  { value: 'cheapest', label: 'Cheapest' },
+  { value: 'age', label: 'Newest' },
+  { value: 'title', label: 'Alphabetically' },
+  { value: 'price', label: 'Cheapest' },
 ];
 
 export const SortBySelect: React.FC<Props> = ({ value, onChange }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  // // eslint-disable-next-line no-console
-  // console.log('value:', value);
-  // // eslint-disable-next-line no-console
-  // console.log('option:', options);
 
   return (
     <div className={styles.sortByBlock}>

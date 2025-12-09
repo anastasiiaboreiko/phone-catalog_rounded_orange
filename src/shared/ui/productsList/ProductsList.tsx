@@ -3,14 +3,14 @@ import { ProductCard } from '../productCard';
 import styles from './ProductsList.module.scss';
 
 type Props = {
-  phones: Product[];
+  products: Product[];
 };
 
-export const ProductsList: React.FC<Props> = ({ phones }) => {
+export const ProductsList: React.FC<Props> = ({ products }) => {
   return (
     <div className={styles.wrapper}>
-      {phones.map(phone => (
-        <ProductCard product={phone} showFullPrice key={phone.id} />
+      {products.map(product => (
+        <ProductCard product={product} showFullPrice key={product.id} />
       ))}
     </div>
   );

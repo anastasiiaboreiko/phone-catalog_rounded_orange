@@ -4,9 +4,8 @@ import { Categories } from './components/categories/Categories';
 import { HotPricesSlider } from './components/hotPricesSlider/HotPricesSlider';
 import { NewModelsSlider } from './components/newModelsSlider/NewModelsSlider';
 import styles from './HomePage.module.scss';
-// import { Product } from '../../shared/types/Product';
-// import { getProducts } from '../../shared/api/api';
 import { ProductsContext } from '../../shared/context/ProductsContext';
+import { Loader } from '../../shared/ui/loader';
 
 export const HomePage = () => {
   const { loading, errorMessage } = useContext(ProductsContext);
@@ -24,6 +23,7 @@ export const HomePage = () => {
           Gadgets store!
         </span>
       </h1>
+      {loading && <Loader />}
 
       {!loading && !errorMessage && (
         <>

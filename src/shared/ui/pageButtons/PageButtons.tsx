@@ -13,24 +13,6 @@ export const PageButtons: React.FC<Props> = ({
   onPageChange,
   currentPage,
 }) => {
-  // const getPageIndexes = () => {
-  //   const lastPage = pages[pages.length - 1];
-  //   let firstIndex = 0;
-  //   let lastIndex = 3;
-
-  //   if (currentPage <= 4) {
-  //     firstIndex = 0;
-  //     lastIndex = firstIndex + 3;
-  //   } else if (currentPage === lastPage) {
-  //     lastIndex = lastPage - 1;
-  //     firstIndex = lastIndex - 3;
-  //   } else {
-  //     lastIndex = currentPage - 1;
-  //     firstIndex = lastIndex - 3;
-  //   }
-
-  //   return { firstIndex, lastIndex };
-  // };
   const { firstIndex, lastIndex } = getPageIndexes(currentPage);
   const currentPages = pages.slice(firstIndex, lastIndex);
 

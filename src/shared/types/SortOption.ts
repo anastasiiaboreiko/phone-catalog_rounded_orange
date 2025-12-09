@@ -1,1 +1,1 @@
-export type SortOption = 'newest' | 'alphabetically' | 'cheapest';
+export type SortOption = 'age' | 'title' | 'price';

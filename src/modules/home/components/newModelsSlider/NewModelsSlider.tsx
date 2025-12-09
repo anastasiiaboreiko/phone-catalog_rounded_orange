@@ -12,23 +12,24 @@ import { getIndexes } from '../../../../shared/utils/getIndexes';
 import { ProductsContext } from '../../../../shared/context/ProductsContext';
 
 export const NewModelsSlider = () => {
+  //#region Context and Variables
   const { products } = useContext(ProductsContext);
+
   const [currentPage, setCurrentPage] = useState<number>(1);
+
   const perPage = useSliderPerPage();
+  const newProducts = products.filter(product => product.year === 2022);
+  const productsQuantity = newProducts.length;
+  const totalPages = Math.max(1, Math.ceil(productsQuantity / perPage));
 
-  // eslint-disable-next-line no-console
-  console.log('products: ', products);
-
-  const newPositions = products.filter(product => product.year === 2022);
-
-  const totalProducts = newPositions.length;
   const { firstIndex, lastIndex } = getIndexes(perPage, currentPage);
-  const currentProducts = newPositions.slice(firstIndex, lastIndex);
-  const safePerPage = Math.max(1, perPage);
-  const totalPages = Math.max(1, Math.ceil(totalProducts / safePerPage));
+  const currentProducts = newProducts.slice(firstIndex, lastIndex);
+
   const prevDisabled = currentPage <= 1;
   const nextDisabled = currentPage >= totalPages;
+  //#endregion
 
+  //#region Handlers
   const handleLeftButtonClick = () => {
     if (!prevDisabled) {
       setCurrentPage(currentPage - 1);
@@ -40,20 +41,7 @@ export const NewModelsSlider = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-
-  // eslint-disable-next-line no-console
-  // console.log(
-  //   'currentPage',
-  //   currentPage,
-  //   'totalProducts:',
-  //   totalProducts,
-  //   'lastIndex:',
-  //   lastIndex,
-  //   'firstIndex:',
-  //   firstIndex,
-  //   'currentProducts:',
-  //   currentProducts,
-  // );
+  //#endregion
 
   return (
     <div className={styles.wrapper}>
