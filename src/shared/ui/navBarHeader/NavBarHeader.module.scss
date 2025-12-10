@@ -58,25 +58,3 @@
     background-color: $primary-text-color;
   }
 }
-
-
-// .activeNavLinkMenu {
-//   display: block;
-//   position: relative;
-//   text-decoration: none;
-//   color: $primary-text-color;
- 
-//   @include on-tablet {
-//     display: none;
-//   }
-
-//   &::after {
-//     content: '';
-//     display: block;
-//     position: absolute;
-//     bottom: 0;
-//     height: 3px;
-//     width: 100%;
-//     background-color: $primary-text-color;
-//   }
-// }

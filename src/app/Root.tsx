@@ -20,6 +20,8 @@ import { RightsPage } from '../modules/rights/RightsPage';
 import { ProductDetailsPage } from '../modules/product';
 import { ProductsProvider } from '../shared/context/ProductsContext';
 import { ScrollToTop } from '../shared/ui/scrollToTop/ScrollToTop';
+// eslint-disable-next-line max-len
+import { ProductDetailsProvider } from '../shared/context/ProductDetailsContext';
 
 export const Root = () => (
   <Router>
@@ -32,17 +34,38 @@ export const Root = () => (
 
           <Route path="phones">
             <Route index element={<PhonesPage />} />
-            <Route path=":productId" element={<ProductDetailsPage />} />
+            <Route
+              path=":productId"
+              element={
+                <ProductDetailsProvider>
+                  <ProductDetailsPage />
+                </ProductDetailsProvider>
+              }
+            />
           </Route>
 
           <Route path="tablets">
             <Route index element={<TabletsPage />} />
-            <Route path=":productId" element={<ProductDetailsPage />} />
+            <Route
+              path=":productId"
+              element={
+                <ProductDetailsProvider>
+                  <ProductDetailsPage />
+                </ProductDetailsProvider>
+              }
+            />
           </Route>
 
           <Route path="accessories">
             <Route index element={<AccessoriesPage />} />
-            <Route path=":productId" element={<ProductDetailsPage />} />
+            <Route
+              path=":productId"
+              element={
+                <ProductDetailsProvider>
+                  <ProductDetailsPage />
+                </ProductDetailsProvider>
+              }
+            />
           </Route>
 
           <Route path="favorites" element={<FavoritesPage />} />

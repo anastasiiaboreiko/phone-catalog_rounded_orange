@@ -2,19 +2,11 @@
 @import '../../../../shared/styles/mixins.scss';
 
 .button {
-  // box-sizing: border-box;
-  height: 40px;
-  width: 100px;
+  height: 100%;
+  width: 100%;
   border-radius: 8px;
   background-color: $accent-color;
   color: $white-color;
   border: 0;
-
-  @include on-tablet {
-    width: 125px;
-  }
-
-  @include on-desktop {
-    width: 160px;
-  }
+  padding: 0;
 }

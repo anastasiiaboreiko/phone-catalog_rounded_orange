@@ -14,11 +14,6 @@
   }
 }
 
-
-.categoryTitle {
-  margin: 0;
-}
-
 .mobileText {
   @include on-tablet {
     display: none;
