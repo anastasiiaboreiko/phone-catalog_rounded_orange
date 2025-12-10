@@ -14,7 +14,6 @@
 }
 
 .specsTitle {
-  margin: 0;
   padding-bottom: 4px;
   color: $secondary-text-color;
 }
@@ -45,7 +44,6 @@
   border-radius: 8px;
   padding-left: 12px;
   cursor: pointer;
-  margin: 0;
   
   &:hover {
     border: 1px solid $secondary-text-color
@@ -82,7 +80,6 @@
   list-style: none;
   padding-left: 0;
   padding-block: 8px;
-  margin: 0;
   width: 136px;
 
   @include on-tablet {

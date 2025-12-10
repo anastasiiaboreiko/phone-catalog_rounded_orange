@@ -1,4 +1,4 @@
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import styles from './PhonesPage.module.scss';
 import { useContext } from 'react';
 import { SortBySelect } from '../../../shared/ui/sortBySelect';
@@ -14,10 +14,16 @@ import { PageButtons } from '../../../shared/ui/pageButtons/PageButtons';
 import { getSortedProducts } from '../../../shared/utils/getSortedProducts';
 import { Loader } from '../../../shared/ui/loader';
 import { useCatalogControls } from '../../../shared/hooks/useCatalogControls';
+import { Breadcrumbs } from '../../../shared/ui/breadcrumbs/Breadcrumbs';
+import { ErrorMessage } from '../../../shared/ui/errorMessage';
 
 export const PhonesPage = () => {
   const { products, loading, errorMessage } = useContext(ProductsContext);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { pathname } = useLocation();
+
+  // eslint-disable-next-line no-console
+  // console.log('search: ', search);
 
   // залишаємо те, що стосується лише конкретного виду продуктів
   const allProducts = products.filter(product => product.category === 'phones');
@@ -55,20 +61,7 @@ export const PhonesPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.breadcrumbs}>
-        <NavLink to="/" className={styles.button}>
-          <img
-            src={`${process.env.PUBLIC_URL}/img/icons/home.svg`}
-            alt="Favorite"
-            className={styles.img}
-          />
-        </NavLink>
-        <img
-          src={`${process.env.PUBLIC_URL}/img/icons/arrowRight.svg`}
-          alt="arrow right"
-        />
-        <p className={styles.sectionTitle}>Phones</p>
-      </div>
+      <Breadcrumbs pathname={pathname} />
       <h1 className={styles.title}>Mobile Phones</h1>
       <p className={`body-text ${styles.info}`}>{allProducts.length} models</p>
 
@@ -79,19 +72,7 @@ export const PhonesPage = () => {
 
       {loading && <Loader />}
 
-      {!loading && errorMessage && (
-        <div className={styles.errorBlock}>
-          <p className={`button-text ${styles.notification}`}>
-            Something went wrong
-          </p>
-          <button
-            className={`button-text ${styles.reloadButton}`}
-            onClick={() => window.location.reload()}
-          >
-            Reload
-          </button>
-        </div>
-      )}
+      {!loading && errorMessage && <ErrorMessage />}
 
       {!loading && !errorMessage && allProducts.length === 0 && (
         <p className={`button-text ${styles.notification}`}>
