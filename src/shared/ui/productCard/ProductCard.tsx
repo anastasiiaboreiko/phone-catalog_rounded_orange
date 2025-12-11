@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Product } from '../../types/Product';
 import { AddToCart } from '../buttons/addToCart';
 import { AddToFavoriteButton } from '../buttons/addToFavorite';
 import styles from './ProductCard.module.scss';
 import { NavLink } from 'react-router-dom';
+import { DispatchContext } from '../../context/ProductsContext';
 
 type Props = {
   product: Product;
@@ -14,6 +15,19 @@ export const ProductCard: React.FC<Props> = ({
   product,
   showFullPrice = false,
 }) => {
+  const isProductFavorite = product.hasOwnProperty('isFavorite');
+
+  // eslint-disable-next-line no-console
+  console.log('isProductFavorite: ', isProductFavorite);
+
+  const dispatch = useContext(DispatchContext);
+
+  const addToFavorite = () =>
+    dispatch({
+      type: 'toggle_favorite',
+      payload: { id: product.itemId },
+    });
+
   return (
     <div className={styles.productCard}>
       <NavLink
@@ -53,7 +67,10 @@ export const ProductCard: React.FC<Props> = ({
       </div>
       <div className={styles.buttonBlock}>
         <AddToCart />
-        <AddToFavoriteButton />
+        <AddToFavoriteButton
+          onFavorite={addToFavorite}
+          isProductFavorite={isProductFavorite}
+        />
       </div>
     </div>
   );

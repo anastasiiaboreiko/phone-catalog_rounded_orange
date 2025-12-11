@@ -7,7 +7,11 @@ import { Breadcrumbs } from '../../shared/ui/breadcrumbs';
 import { Loader } from '../../shared/ui/loader';
 import { ErrorMessage } from '../../shared/ui/errorMessage';
 import { BREAKPOINTS } from '../../shared/styles/constants';
-import { ProductsContext } from '../../shared/context/ProductsContext';
+// eslint-disable-next-line max-len
+import {
+  DispatchContext,
+  ProductsContext,
+} from '../../shared/context/ProductsContext';
 import { AddToCart } from '../../shared/ui/buttons/addToCart';
 import { AddToFavoriteButton } from '../../shared/ui/buttons/addToFavorite';
 import { SuggestedProducts } from './components/suggestedProducts';
@@ -18,6 +22,7 @@ export const ProductDetailsPage = () => {
     ProductDetailsContext,
   );
   const { products } = useContext(ProductsContext);
+  const dispatch = useContext(DispatchContext);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -34,6 +39,8 @@ export const ProductDetailsPage = () => {
   const isMobile = window.innerWidth < BREAKPOINTS.tablet;
   const hasCamera = currentProduct?.hasOwnProperty('camera');
   const hasZoom = currentProduct?.hasOwnProperty('zoom');
+  const isProductFavorite: boolean | undefined =
+    currentProduct?.hasOwnProperty('isFavorite');
 
   // eslint-disable-next-line max-len, prettier/prettier
   const [selectedCapacity, setSelectedCapacity] = useState<string | undefined>();
@@ -67,6 +74,15 @@ export const ProductDetailsPage = () => {
 
     if (newProduct) {
       navigate(`/${newProduct.category}/${newProduct.id}`);
+    }
+  };
+
+  const addToFavorite = () => {
+    if (currentProduct) {
+      dispatch({
+        type: 'toggle_favorite',
+        payload: { id: currentProduct.id },
+      });
     }
   };
 
@@ -215,7 +231,10 @@ export const ProductDetailsPage = () => {
                 </div>
                 <div className={styles.buttonBlock}>
                   <AddToCart />
-                  <AddToFavoriteButton />
+                  <AddToFavoriteButton
+                    onFavorite={addToFavorite}
+                    isProductFavorite={isProductFavorite}
+                  />
                 </div>
               </div>
 

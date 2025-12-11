@@ -73,7 +73,7 @@ export const AccessoriesPage = () => {
 
       {!loading && !errorMessage && allProducts.length === 0 && (
         <p className={`button-text ${styles.notification}`}>
-          There are no phones yet
+          There are no accessories yet
         </p>
       )}
 
