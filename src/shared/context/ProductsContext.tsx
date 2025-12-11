@@ -125,6 +125,7 @@ export const ProductsProvider: React.FC<Props> = ({ children }) => {
       .finally(() => {
         dispatch({ type: 'set_loading', payload: false });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //зберігаємо улюблені в локас стейті
