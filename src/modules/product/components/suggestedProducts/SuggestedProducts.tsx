@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from './SuggestedProducts.module.scss';
-import { ProductsContext } from '../../../../shared/context/ProductsContext';
+// eslint-disable-next-line max-len
+import { ProductsStateContext } from '../../../../shared/context/ProductsContext';
 import { useSliderPerPage } from '../../../../shared/hooks/useSliderPerPage';
 import { getIndexes } from '../../../../shared/utils/getIndexes';
 import { useSwipeable } from 'react-swipeable';
@@ -11,13 +12,27 @@ import { SliderRightRoundButton } from '../../../../shared/ui/buttons/sliderRigh
 import { ProductCard } from '../../../../shared/ui/productCard';
 // eslint-disable-next-line max-len
 import { getSuggestedProducts } from '../../../../shared/utils/getSuggestedProducts';
+import { Product } from '../../../../shared/types/Product';
 
 export const SuggestedProducts = () => {
-  const { products } = useContext(ProductsContext);
+  const { products } = useContext(ProductsStateContext);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [suggestedIds, setSuggestedIds] = useState<number[]>([]);
   const perPage = useSliderPerPage();
 
-  const suggestedProducts = getSuggestedProducts(products, 20);
+  // робимо так, щоб при натисканні на батон
+  // addToFavorite не змінювались продукти в рандомній секції
+  useEffect(() => {
+    if (products.length > 0 && suggestedIds.length === 0) {
+      const ids = getSuggestedProducts(products, 20).map(product => product.id);
+
+      setSuggestedIds(ids);
+    }
+  }, [products, suggestedIds.length]);
+
+  const suggestedProducts: Product[] = suggestedIds
+    .map(id => products.find(product => product.id === id))
+    .filter((product): product is Product => Boolean(product));
 
   const totalProducts = suggestedProducts.length;
   const { firstIndex, lastIndex } = getIndexes(perPage, currentPage);

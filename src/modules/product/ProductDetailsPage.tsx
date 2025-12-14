@@ -9,28 +9,31 @@ import { ErrorMessage } from '../../shared/ui/errorMessage';
 import { BREAKPOINTS } from '../../shared/styles/constants';
 // eslint-disable-next-line max-len
 import {
-  DispatchContext,
-  ProductsContext,
+  // ProductDispatchContext,
+  ProductsStateContext,
 } from '../../shared/context/ProductsContext';
 import { AddToCart } from '../../shared/ui/buttons/addToCart';
 import { AddToFavoriteButton } from '../../shared/ui/buttons/addToFavorite';
 import { SuggestedProducts } from './components/suggestedProducts';
+import { BackButton } from '../../shared/ui/buttons/back/BackButton';
+// import {
+//   CartDispatchContext,
+//   CartStateContext,
+// } from '../../shared/context/CartContext';
 
 export const ProductDetailsPage = () => {
-  const { productId } = useParams();
   const { allProducts, loading, errorMessage } = useContext(
     ProductDetailsContext,
   );
-  const { products } = useContext(ProductsContext);
-  const dispatch = useContext(DispatchContext);
+  const { products } = useContext(ProductsStateContext);
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { productId } = useParams();
 
+  const globalProduct = products.find(product => product.itemId === productId);
   const currentProduct = allProducts?.find(product => product.id === productId);
   const itemId = products.find(product => product.itemId === productId)?.id;
-
-  // eslint-disable-next-line no-console
-  console.log('itemId: ', itemId);
 
   const sameModels = allProducts.filter(
     product => product.namespaceId === currentProduct?.namespaceId,
@@ -39,8 +42,6 @@ export const ProductDetailsPage = () => {
   const isMobile = window.innerWidth < BREAKPOINTS.tablet;
   const hasCamera = currentProduct?.hasOwnProperty('camera');
   const hasZoom = currentProduct?.hasOwnProperty('zoom');
-  const isProductFavorite: boolean | undefined =
-    currentProduct?.hasOwnProperty('isFavorite');
 
   // eslint-disable-next-line max-len, prettier/prettier
   const [selectedCapacity, setSelectedCapacity] = useState<string | undefined>();
@@ -77,25 +78,10 @@ export const ProductDetailsPage = () => {
     }
   };
 
-  const addToFavorite = () => {
-    if (currentProduct) {
-      dispatch({
-        type: 'toggle_favorite',
-        payload: { id: currentProduct.id },
-      });
-    }
-  };
-
   return (
     <div className={styles.wrapper}>
       <Breadcrumbs pathname={pathname} productName={currentProduct?.name} />
-      <div className={styles.backButton}>
-        <img
-          src={`${process.env.PUBLIC_URL}/img/icons/arrowLeft.svg`}
-          alt="arrow right"
-        />
-        <p className={`small-text ${styles.backButtonTitle}`}>Back</p>
-      </div>
+      <BackButton pathname={pathname} />
       {loading && <Loader />}
 
       {!loading && errorMessage && <ErrorMessage />}
@@ -230,11 +216,8 @@ export const ProductDetailsPage = () => {
                   </div>
                 </div>
                 <div className={styles.buttonBlock}>
-                  <AddToCart />
-                  <AddToFavoriteButton
-                    onFavorite={addToFavorite}
-                    isProductFavorite={isProductFavorite}
-                  />
+                  <AddToCart product={globalProduct} />
+                  <AddToFavoriteButton product={globalProduct} />
                 </div>
               </div>
 
