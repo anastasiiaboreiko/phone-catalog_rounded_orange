@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Product } from '../types/Product';
 import { getProducts } from '../api/api';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 type ProductsState = {
   products: Product[];
@@ -68,34 +69,12 @@ function reducer(state: ProductsState, action: Action): ProductsState {
   }
 }
 
-function useLocalStorage<T>(key: string, startValue: T): [T, (v: T) => void] {
-  const [value, setValue] = useState(() => {
-    const data = localStorage.getItem(key);
+export const ProductsStateContext = React.createContext(initialState);
 
-    if (data) {
-      try {
-        return JSON.parse(data) as T;
-      } catch {
-        /* ignore */
-      }
-    }
-
-    localStorage.setItem(key, JSON.stringify(startValue));
-
-    return startValue;
-  });
-
-  const save = (newValue: T) => {
-    localStorage.setItem(key, JSON.stringify(newValue));
-    setValue(newValue);
-  };
-
-  return [value, save];
-}
-
-export const ProductsContext = React.createContext(initialState);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const DispatchContext = React.createContext((action: Action) => {});
+export const ProductDispatchContext = React.createContext(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  (action: Action) => {},
+);
 
 type Props = {
   children: React.ReactNode;
@@ -143,10 +122,10 @@ export const ProductsProvider: React.FC<Props> = ({ children }) => {
   }, [state.products, setFavorites, favorites]);
 
   return (
-    <ProductsContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
+    <ProductsStateContext.Provider value={state}>
+      <ProductDispatchContext.Provider value={dispatch}>
         {children}
-      </DispatchContext.Provider>
-    </ProductsContext.Provider>
+      </ProductDispatchContext.Provider>
+    </ProductsStateContext.Provider>
   );
 };

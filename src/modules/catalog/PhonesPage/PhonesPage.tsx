@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { SortBySelect } from '../../../shared/ui/sortBySelect';
 import { ItemsOnPageSelect } from '../../../shared/ui/itemsOnPageSelect';
 import { ProductsList } from '../../../shared/ui/productsList';
-import { ProductsContext } from '../../../shared/context/ProductsContext';
+import { ProductsStateContext } from '../../../shared/context/ProductsContext';
 // eslint-disable-next-line max-len
 import { SliderLeftRoundButton } from '../../../shared/ui/buttons/sliderLerfRound';
 import { getIndexes } from '../../../shared/utils/getIndexes';
@@ -18,7 +18,7 @@ import { Breadcrumbs } from '../../../shared/ui/breadcrumbs/Breadcrumbs';
 import { ErrorMessage } from '../../../shared/ui/errorMessage';
 
 export const PhonesPage = () => {
-  const { products, loading, errorMessage } = useContext(ProductsContext);
+  const { products, loading, errorMessage } = useContext(ProductsStateContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const { pathname } = useLocation();
 

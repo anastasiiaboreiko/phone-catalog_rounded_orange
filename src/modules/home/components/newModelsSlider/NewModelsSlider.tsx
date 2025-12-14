@@ -10,11 +10,12 @@ import styles from './NewModelsSlider.module.scss';
 import { ProductCard } from '../../../../shared/ui/productCard/ProductCard';
 import { useSliderPerPage } from '../../../../shared/hooks/useSliderPerPage';
 import { getIndexes } from '../../../../shared/utils/getIndexes';
-import { ProductsContext } from '../../../../shared/context/ProductsContext';
+// eslint-disable-next-line max-len
+import { ProductsStateContext } from '../../../../shared/context/ProductsContext';
 
 export const NewModelsSlider = () => {
   //#region Context and Variables
-  const { products } = useContext(ProductsContext);
+  const { products } = useContext(ProductsStateContext);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 

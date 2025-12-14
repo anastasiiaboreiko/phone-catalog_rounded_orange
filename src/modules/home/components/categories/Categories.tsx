@@ -4,11 +4,12 @@ import phoneImg from '../../../../img/category-phones1 copy.png';
 import tabletImg from '../../../../img/category-tablets copy.png';
 import accessoryImg from '../../../../img/category-assessories1.png';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ProductsContext } from '../../../../shared/context/ProductsContext';
+// eslint-disable-next-line max-len
+import { ProductsStateContext } from '../../../../shared/context/ProductsContext';
 
 export const Categories = () => {
   const [searchParams] = useSearchParams();
-  const { products } = useContext(ProductsContext);
+  const { products } = useContext(ProductsStateContext);
 
   const phones = products.filter(
     product => product.category === 'phones',

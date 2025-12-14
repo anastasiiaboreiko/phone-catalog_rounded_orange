@@ -4,11 +4,11 @@ import { Categories } from './components/categories/Categories';
 import { HotPricesSlider } from './components/hotPricesSlider/HotPricesSlider';
 import { NewModelsSlider } from './components/newModelsSlider/NewModelsSlider';
 import styles from './HomePage.module.scss';
-import { ProductsContext } from '../../shared/context/ProductsContext';
+import { ProductsStateContext } from '../../shared/context/ProductsContext';
 import { Loader } from '../../shared/ui/loader';
 
 export const HomePage = () => {
-  const { loading, errorMessage } = useContext(ProductsContext);
+  const { loading, errorMessage } = useContext(ProductsStateContext);
 
   return (
     <div className={styles.wrapper}>

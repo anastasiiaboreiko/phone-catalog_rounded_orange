@@ -1,5 +1,188 @@
 @import '../../shared/styles/mixins.scss';
+@import '../../shared/styles/variables.scss';
 
 .container {
   @include content-padding-inline();
+  padding-top: 24px;
+
+  @include on-tablet {
+    padding-top: 40px;
+  }
+}
+
+.title {
+  padding-block: 24px 32px;
+
+  @include on-tablet {
+    padding-block: 16px 32px;
+  }
+}
+
+.innerContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+
+  @include on-desktop {
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+  }
+}
+
+.cartItemsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// .cartItem {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding-inline: 16px;
+//   height: 160px;
+//   border: 1px solid $elements-color;
+//   border-radius: 16px;
+//   background-color: $white-color;
+
+//   @include on-tablet {
+//     padding-inline: 24px;
+//     height: 128px;
+//   }
+// }
+
+// .cartItemMobile {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 16px;
+//   width: 100%;
+// }
+
+// .firstPart {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .secondPart {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// .deleteButton {
+//   display: inline-flex;
+//   align-items: center; // по вертикалі
+//   justify-content: center; // по горизонталі
+//   background-color: $white-color;
+//   height: 16px;
+//   width: 16px;
+//   border: 0;
+//   padding: 0;
+//   cursor: pointer;
+// }
+
+// .icon {
+//   width: 16px;
+//   height: 16px;
+
+//   mask-image: url('/img/icons/close.svg');
+//   mask-size: cover;
+
+//   background-color: $icons-color;
+// }
+
+// .itemImg {
+//   height: 80px;
+//   width: 80px;
+
+//   object-fit: contain;
+// }
+
+// .buttonsBlock {
+//   display: flex;
+//   gap: 14px;
+//   align-items: center;
+// }
+
+// .button {
+//   display: inline-flex; // flex, щоб центрувати вміст
+//   align-items: center; // по вертикалі
+//   justify-content: center; // по горизонталі
+//   height: 32px;
+//   width: 32px;
+//   border-radius: 50%;
+//   border: 1px solid $icons-color;
+//   background-color: $hover-BG-color;
+//   cursor: pointer;
+
+//   &:hover {
+//     border-color: $primary-text-color;
+//   }
+
+//   &:disabled {
+//     opacity: 0.4;
+//     border: 1px solid $elements-color;
+//     cursor: not-allowed;
+//   }
+
+//   &:disabled .icon {
+//     background-color: $icons-color;
+//   }
+// }
+
+// .iconMinus {
+//   width: 16px;
+//   height: 16px;
+
+//   mask-image: url('/img/icons/minus.svg');
+//   mask-size: cover;
+
+//   background-color: $primary-text-color;
+// }
+
+// .iconPlus {
+//   width: 16px;
+//   height: 16px;
+
+//   mask-image: url('/img/icons/plus.svg');
+//   mask-size: cover;
+
+//   background-color: $primary-text-color;
+// }
+
+.totalPriceBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 24px;
+  border: 1px solid #E2E6E9;
+  border-radius: 16px;
+  height: 190px;
+
+  @include on-desktop {
+    height: 206px;
+  }
+}
+
+.totalItems {
+  color: $secondary-text-color;
+}
+
+.strike {
+  height: 1px;
+  background-color: $elements-color;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.checkoutButton {
+  height: 48px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: $accent-color;
+  color: $white-color;
+  border: 0;
+  padding: 0;
 }

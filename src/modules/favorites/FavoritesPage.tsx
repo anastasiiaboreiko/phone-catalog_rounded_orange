@@ -2,14 +2,14 @@ import { useLocation } from 'react-router-dom';
 import { Breadcrumbs } from '../../shared/ui/breadcrumbs';
 import styles from './FavoritesPage.module.scss';
 import { useContext } from 'react';
-import { ProductsContext } from '../../shared/context/ProductsContext';
+import { ProductsStateContext } from '../../shared/context/ProductsContext';
 import { Loader } from '../../shared/ui/loader';
 import { ErrorMessage } from '../../shared/ui/errorMessage';
 import { ProductsList } from '../../shared/ui/productsList';
 
 export const FavoritesPage = () => {
   const { pathname } = useLocation();
-  const { products, loading, errorMessage } = useContext(ProductsContext);
+  const { products, loading, errorMessage } = useContext(ProductsStateContext);
 
   const allProducts = products.filter(product =>
     product.hasOwnProperty('isFavorite'),

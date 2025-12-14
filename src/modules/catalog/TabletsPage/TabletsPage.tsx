@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styles from './TablesPage.module.scss';
-import { ProductsContext } from '../../../shared/context/ProductsContext';
+import { ProductsStateContext } from '../../../shared/context/ProductsContext';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useCatalogControls } from '../../../shared/hooks/useCatalogControls';
 import { getIndexes } from '../../../shared/utils/getIndexes';
@@ -18,7 +18,7 @@ import { Breadcrumbs } from '../../../shared/ui/breadcrumbs';
 import { ErrorMessage } from '../../../shared/ui/errorMessage';
 
 export const TabletsPage = () => {
-  const { products, loading, errorMessage } = useContext(ProductsContext);
+  const { products, loading, errorMessage } = useContext(ProductsStateContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const { pathname } = useLocation();
 
