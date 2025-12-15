@@ -16,6 +16,7 @@ import { PageButtons } from '../../../shared/ui/pageButtons';
 import { SliderRightRoundButton } from '../../../shared/ui/buttons/sliderRightRound';
 import { Breadcrumbs } from '../../../shared/ui/breadcrumbs';
 import { ErrorMessage } from '../../../shared/ui/errorMessage';
+import { EmptyArray } from '../../../shared/ui/emptyArray';
 
 export const AccessoriesPage = () => {
   const { products, loading, errorMessage } = useContext(ProductsStateContext);
@@ -25,6 +26,7 @@ export const AccessoriesPage = () => {
   const allProducts = products.filter(
     product => product.category === 'accessories',
   );
+
   const productsQuantity = allProducts.length;
 
   const {
@@ -62,23 +64,23 @@ export const AccessoriesPage = () => {
       <h1 className={styles.title}>Accessories</h1>
       <p className={`body-text ${styles.info}`}>{allProducts.length} models</p>
 
-      <div className={styles.specsBlock}>
-        <SortBySelect value={sortOption} onChange={handleSortOptionChange} />
-        <ItemsOnPageSelect value={perPage} onChange={handlePerPageChange} />
-      </div>
-
       {loading && <Loader />}
 
       {!loading && errorMessage && <ErrorMessage />}
 
       {!loading && !errorMessage && allProducts.length === 0 && (
-        <p className={`button-text ${styles.notification}`}>
-          There are no accessories yet
-        </p>
+        <EmptyArray pathname={pathname} />
       )}
 
       {!loading && !errorMessage && allProducts.length > 0 && (
         <>
+          <div className={styles.specsBlock}>
+            <SortBySelect
+              value={sortOption}
+              onChange={handleSortOptionChange}
+            />
+            <ItemsOnPageSelect value={perPage} onChange={handlePerPageChange} />
+          </div>
           <ProductsList products={currentProducts} />
           <div className={styles.pageButtonsBar}>
             <SliderLeftRoundButton

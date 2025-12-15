@@ -29,15 +29,9 @@
 .mainInfoBlock {
   display: grid;
   grid-template-columns: 1fr;
-  // padding-bottom: 56px;
 
   @include on-tablet {
     grid-template-columns: 1fr 1fr; 
-    // padding-bottom: 64px;
-  }
-
-  @include on-desktop {
-    // padding-bottom: 80px;
   }
 }
 
@@ -134,9 +128,6 @@
   display: none;
 }
 
-.color {
-}
-
 .colorsButtons {
   display: flex;
   gap: 8px;
@@ -148,7 +139,6 @@
 }
 
 .radioLabelColor {
-  // box-sizing: border-box;
   display: inline-block;
   border-radius: 50%;
   width: 32px;
@@ -279,9 +269,6 @@
   color: $secondary-text-color;
 }
 
-.specs {
-}
-
 .descriptionBlock {
   display: grid;
   grid-template-columns: 1fr;
@@ -318,9 +305,6 @@
   height: 1px;
   background-color: $elements-color;
   width: 100%;
-}
-
-.descriptionSection {
 }
 
 .descriptionTitle {

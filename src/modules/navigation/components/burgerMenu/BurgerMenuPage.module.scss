@@ -34,8 +34,6 @@
   justify-content: center;
   position: relative;
 
-  // @include hover(transform, scale(1.1));
-
   &:hover::after {
     content: '';
     display: block;
@@ -50,6 +48,39 @@
 
 .footerButton:first-child {
   border-right: 1px solid $elements-color;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: attr(data-count);
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+    background-color: $secondary-accent-color;
+    color: $white-color;
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 600;
+    border: 2px solid $white-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    left: 100%;
+    bottom: 100%;
+    transform: translate(-50%, 50%);
+  }
+
+  &[data-count='0']::after {
+    display: none;
+  }
 }
 
 .img {

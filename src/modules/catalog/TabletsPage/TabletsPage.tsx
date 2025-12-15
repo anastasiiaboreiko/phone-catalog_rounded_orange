@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import styles from './TablesPage.module.scss';
+import styles from './TabletsPage.module.scss';
 import { ProductsStateContext } from '../../../shared/context/ProductsContext';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useCatalogControls } from '../../../shared/hooks/useCatalogControls';
@@ -16,6 +16,7 @@ import { PageButtons } from '../../../shared/ui/pageButtons';
 import { SliderRightRoundButton } from '../../../shared/ui/buttons/sliderRightRound';
 import { Breadcrumbs } from '../../../shared/ui/breadcrumbs';
 import { ErrorMessage } from '../../../shared/ui/errorMessage';
+import { EmptyArray } from '../../../shared/ui/emptyArray';
 
 export const TabletsPage = () => {
   const { products, loading, errorMessage } = useContext(ProductsStateContext);
@@ -62,23 +63,23 @@ export const TabletsPage = () => {
       <h1 className={styles.title}>Tablest</h1>
       <p className={`body-text ${styles.info}`}>{allProducts.length} models</p>
 
-      <div className={styles.specsBlock}>
-        <SortBySelect value={sortOption} onChange={handleSortOptionChange} />
-        <ItemsOnPageSelect value={perPage} onChange={handlePerPageChange} />
-      </div>
-
       {loading && <Loader />}
 
       {!loading && errorMessage && <ErrorMessage />}
 
       {!loading && !errorMessage && allProducts.length === 0 && (
-        <p className={`button-text ${styles.notification}`}>
-          There are no tablets yet
-        </p>
+        <EmptyArray pathname={pathname} />
       )}
 
       {!loading && !errorMessage && allProducts.length > 0 && (
         <>
+          <div className={styles.specsBlock}>
+            <SortBySelect
+              value={sortOption}
+              onChange={handleSortOptionChange}
+            />
+            <ItemsOnPageSelect value={perPage} onChange={handlePerPageChange} />
+          </div>
           <ProductsList products={currentProducts} />
           <div className={styles.pageButtonsBar}>
             <SliderLeftRoundButton

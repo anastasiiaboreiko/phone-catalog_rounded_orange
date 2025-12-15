@@ -7,19 +7,11 @@ import { Breadcrumbs } from '../../shared/ui/breadcrumbs';
 import { Loader } from '../../shared/ui/loader';
 import { ErrorMessage } from '../../shared/ui/errorMessage';
 import { BREAKPOINTS } from '../../shared/styles/constants';
-// eslint-disable-next-line max-len
-import {
-  // ProductDispatchContext,
-  ProductsStateContext,
-} from '../../shared/context/ProductsContext';
+import { ProductsStateContext } from '../../shared/context/ProductsContext';
 import { AddToCart } from '../../shared/ui/buttons/addToCart';
 import { AddToFavoriteButton } from '../../shared/ui/buttons/addToFavorite';
 import { SuggestedProducts } from './components/suggestedProducts';
 import { BackButton } from '../../shared/ui/buttons/back/BackButton';
-// import {
-//   CartDispatchContext,
-//   CartStateContext,
-// } from '../../shared/context/CartContext';
 
 export const ProductDetailsPage = () => {
   const { allProducts, loading, errorMessage } = useContext(
@@ -85,6 +77,10 @@ export const ProductDetailsPage = () => {
       {loading && <Loader />}
 
       {!loading && errorMessage && <ErrorMessage />}
+
+      {!loading && !errorMessage && currentProduct === undefined && (
+        <p className="button-text">Product not found</p>
+      )}
 
       {!loading && currentProduct && !errorMessage && (
         <>

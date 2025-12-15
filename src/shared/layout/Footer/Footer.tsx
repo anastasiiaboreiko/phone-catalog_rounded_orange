@@ -1,5 +1,4 @@
 import styles from './Footer.module.scss';
-// import sliderButton from '../../../img/icons/slider_button.svg';
 import { Logo } from '../../ui/logo';
 import { Link } from 'react-router-dom';
 import { BackToTopButton } from '../../ui/buttons/backToTop/BackToTopButton';

@@ -20,10 +20,3 @@ export const SliderLeftRoundButton: React.FC<Props> = ({
     </button>
   );
 };
-// export const SliderLeftRoundButton = () => {
-//   return (
-//     <button className={styles.button}>
-//       <span className={styles.icon} aria-hidden="true" />
-//     </button>
-//   );
-// };

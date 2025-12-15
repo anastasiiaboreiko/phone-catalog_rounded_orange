@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { BannerSlider } from './components/bannerSlider/BannerSlidaer';
-import { Categories } from './components/categories/Categories';
-import { HotPricesSlider } from './components/hotPricesSlider/HotPricesSlider';
-import { NewModelsSlider } from './components/newModelsSlider/NewModelsSlider';
 import styles from './HomePage.module.scss';
 import { ProductsStateContext } from '../../shared/context/ProductsContext';
 import { Loader } from '../../shared/ui/loader';
+import { BannerSlider } from './components/bannerSlider';
+import { NewModelsSlider } from './components/newModelsSlider';
+import { Categories } from './components/categories';
+import { HotPricesSlider } from './components/hotPricesSlider';
 
 export const HomePage = () => {
   const { loading, errorMessage } = useContext(ProductsStateContext);
