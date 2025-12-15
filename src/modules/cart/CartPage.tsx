@@ -41,7 +41,9 @@ export const CartPage = () => {
       <BackButton pathname={pathname} />
       <h2 className={styles.title}>Cart</h2>
       <div className={styles.innerContainer}>
-        {cartItems.length === 0 && <h3>Your cart is empty</h3>}
+        {cartItems.length === 0 && (
+          <p className="button-text ">Your cart is empty</p>
+        )}
 
         {cartItems.length > 0 && (
           <>

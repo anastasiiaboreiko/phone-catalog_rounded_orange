@@ -61,7 +61,6 @@ export const HotPricesSlider = () => {
       }
     },
 
-    // trackMouse: true,
     preventScrollOnSwipe: true,
   });
   //#endregion

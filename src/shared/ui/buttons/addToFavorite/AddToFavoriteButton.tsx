@@ -4,16 +4,10 @@ import { Product } from '../../../types/Product';
 import { ProductDispatchContext } from '../../../context/ProductsContext';
 
 type Props = {
-  // onFavorite: () => void;
-  // isProductFavorite: boolean | undefined;
   product?: Product;
 };
 
-export const AddToFavoriteButton: React.FC<Props> = ({
-  // onFavorite,
-  // isProductFavorite,
-  product,
-}) => {
+export const AddToFavoriteButton: React.FC<Props> = ({ product }) => {
   const productDispatch = useContext(ProductDispatchContext);
   const isProductFavorite = !!product?.isFavorite;
 

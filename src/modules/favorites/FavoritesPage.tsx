@@ -15,13 +15,6 @@ export const FavoritesPage = () => {
     product.hasOwnProperty('isFavorite'),
   );
 
-  // eslint-disable-next-line no-console
-  console.log('allProducts: ', allProducts);
-  // eslint-disable-next-line no-console
-  console.log('loading: ', loading);
-  // eslint-disable-next-line no-console
-  console.log('errorMessage: ', errorMessage);
-
   return (
     <div className={styles.container}>
       <Breadcrumbs pathname={pathname} />

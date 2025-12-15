@@ -16,14 +16,12 @@ import { Loader } from '../../../shared/ui/loader';
 import { useCatalogControls } from '../../../shared/hooks/useCatalogControls';
 import { Breadcrumbs } from '../../../shared/ui/breadcrumbs/Breadcrumbs';
 import { ErrorMessage } from '../../../shared/ui/errorMessage';
+import { EmptyArray } from '../../../shared/ui/emptyArray';
 
 export const PhonesPage = () => {
   const { products, loading, errorMessage } = useContext(ProductsStateContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const { pathname } = useLocation();
-
-  // eslint-disable-next-line no-console
-  // console.log('search: ', search);
 
   // залишаємо те, що стосується лише конкретного виду продуктів
   const allProducts = products.filter(product => product.category === 'phones');
@@ -65,23 +63,23 @@ export const PhonesPage = () => {
       <h1 className={styles.title}>Mobile Phones</h1>
       <p className={`body-text ${styles.info}`}>{allProducts.length} models</p>
 
-      <div className={styles.specsBlock}>
-        <SortBySelect value={sortOption} onChange={handleSortOptionChange} />
-        <ItemsOnPageSelect value={perPage} onChange={handlePerPageChange} />
-      </div>
-
       {loading && <Loader />}
 
       {!loading && errorMessage && <ErrorMessage />}
 
       {!loading && !errorMessage && allProducts.length === 0 && (
-        <p className={`button-text ${styles.notification}`}>
-          There are no phones yet
-        </p>
+        <EmptyArray pathname={pathname} />
       )}
 
       {!loading && !errorMessage && allProducts.length > 0 && (
         <>
+          <div className={styles.specsBlock}>
+            <SortBySelect
+              value={sortOption}
+              onChange={handleSortOptionChange}
+            />
+            <ItemsOnPageSelect value={perPage} onChange={handlePerPageChange} />
+          </div>
           <ProductsList products={currentProducts} />
           <div className={styles.pageButtonsBar}>
             <SliderLeftRoundButton
