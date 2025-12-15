@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/phone-catalog_rounded_orange/static/css/main.4e018e17.css",
+    "main.js": "/phone-catalog_rounded_orange/static/js/main.86fd0e7b.js",
+    "static/media/category-tablets copy.png": "/phone-catalog_rounded_orange/static/media/category-tablets copy.39155377aef889f588a1.png",
+    "static/media/banner-iphone_17_pro_mob.jpg": "/phone-catalog_rounded_orange/static/media/banner-iphone_17_pro_mob.613057ae206e447b9fb8.jpg",
+    "static/media/logo.svg": "/phone-catalog_rounded_orange/static/media/logo.e5467900617b23dfb384e1b0d37b3885.svg",
+    "static/media/category-phones1 copy.png": "/phone-catalog_rounded_orange/static/media/category-phones1 copy.19097a1e66fd499e8445.png",
+    "static/media/category-assessories1.png": "/phone-catalog_rounded_orange/static/media/category-assessories1.415c81a900dc5000148d.png",
+    "static/media/banner-iphone17pro_colors.jpg": "/phone-catalog_rounded_orange/static/media/banner-iphone17pro_colors.86f230e6fbcc86023f68.jpg",
+    "static/media/Mont-Regular.ttf": "/phone-catalog_rounded_orange/static/media/Mont-Regular.e797167c18f9897bb607.ttf",
+    "static/media/Mont-SemiBold.ttf": "/phone-catalog_rounded_orange/static/media/Mont-SemiBold.0b5e68ebb36ca4006e21.ttf",
+    "static/media/Mont-Bold.ttf": "/phone-catalog_rounded_orange/static/media/Mont-Bold.3675b597d3ffb2b75168.ttf",
+    "static/media/banner-accessories.jpeg": "/phone-catalog_rounded_orange/static/media/banner-accessories.2c102b5b722602ce3990.jpeg",
+    "static/media/banner-accessories_mob.jpeg": "/phone-catalog_rounded_orange/static/media/banner-accessories_mob.2c102b5b722602ce3990.jpeg",
+    "static/media/banner-ipad.jpg": "/phone-catalog_rounded_orange/static/media/banner-ipad.3ac5c76d0d0d98736e97.jpg",
+    "static/media/banner-ipad_mob.jpg": "/phone-catalog_rounded_orange/static/media/banner-ipad_mob.c15391ef9ab6e7bec449.jpg",
+    "static/media/close.svg": "/phone-catalog_rounded_orange/static/media/close.0594ac0ef702db8fbc79.svg",
+    "static/media/plus.svg": "/phone-catalog_rounded_orange/static/media/plus.d886cbead86167dad78e.svg",
+    "index.html": "/phone-catalog_rounded_orange/index.html",
+    "static/media/arrowLeft.svg": "/phone-catalog_rounded_orange/static/media/arrowLeft.7460d67936be8c4491a8.svg",
+    "static/media/arrowRight.svg": "/phone-catalog_rounded_orange/static/media/arrowRight.e028d3889646e0b5e56c.svg",
+    "static/media/arrowUp.svg": "/phone-catalog_rounded_orange/static/media/arrowUp.1ea6958a07717117d3d5.svg",
+    "static/media/minus.svg": "/phone-catalog_rounded_orange/static/media/minus.6147cb5db4c975f91de0.svg",
+    "main.4e018e17.css.map": "/phone-catalog_rounded_orange/static/css/main.4e018e17.css.map",
+    "main.86fd0e7b.js.map": "/phone-catalog_rounded_orange/static/js/main.86fd0e7b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e018e17.css",
+    "static/js/main.86fd0e7b.js"
+  ]
+}
